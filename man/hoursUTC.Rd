@@ -12,3 +12,8 @@ number of hours
 \description{
 This function returns time difference between UTC and Local
 }
+\examples{
+ hoursUTC()
+ #return integer equal to diference between local and utc time
+
+}

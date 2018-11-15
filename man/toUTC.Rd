@@ -15,3 +15,7 @@ utctime POSIXct UTC time
 \description{
 Returns UTC time from local time
 }
+\examples{
+ toUTC( as.POSIXct("1991-06-29 05:27:25", tz = "CET") )
+
+}
