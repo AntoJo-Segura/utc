@@ -1,7 +1,7 @@
 Package: utc
 Type: Package
 Title: Coordinated Universal Time Transformations
-Version: 0.1.0
+Version: 0.1.1
 Author: Antonio J. Segura
 Maintainer: Antonio J. Segura <segura.antonioj@gmail.com>
 Description: Three functions are provided: first function changes time from local to UTC, other changes from UTC to local and third returns difference between local and UTC. %h+% operator is also provided it adds hours to a time.

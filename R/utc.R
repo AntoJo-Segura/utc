@@ -37,20 +37,23 @@ fromUTC <- function(utctime){
 #'
 #'@description This function returns time difference between UTC and Local
 #'
+#'@param to_test_time only for testing UTC Sys.time()
+#'
 #'@return number of hours
 #'
 #'@example  hoursUTC()
 #'
-hoursUTC <- function(){
+hoursUTC <- function(to_test_time = Sys.time()){
+  localtime <- to_test_time
   as.numeric(
     as.POSIXct(
       format(
-        as.POSIXct( Sys.time(), format = "%Y-%m-%d %H:%M:%S" ),
+        as.POSIXct( localtime, format = "%Y-%m-%d %H:%M:%S" ),
              "%Y-%m-%d %H:%M:%S"
       )
     ) -
     as.POSIXct(
-      format( as.POSIXct( toUTC(Sys.time() ), format = "%Y-%m-%d %H:%M:%S" ),
+      format( as.POSIXct( toUTC( localtime ), format = "%Y-%m-%d %H:%M:%S" ),
              "%Y-%m-%d %H:%M:%S"
       )
     )
