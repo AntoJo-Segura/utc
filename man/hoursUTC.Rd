@@ -4,7 +4,10 @@
 \alias{hoursUTC}
 \title{hoursUTC}
 \usage{
-hoursUTC(to_test_param = Sys.time())
+hoursUTC(to_test_time = Sys.time())
+}
+\arguments{
+\item{to_test_time}{only for testing UTC Sys.time()}
 }
 \value{
 number of hours
