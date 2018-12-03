@@ -45,18 +45,15 @@ fromUTC <- function(utctime){
 #'
 hoursUTC <- function(to_test_time = Sys.time()){
   localtime <- to_test_time
-  as.numeric(
+  difftime(
     as.POSIXct(
-      format(
-        as.POSIXct( localtime, format = "%Y-%m-%d %H:%M:%S" ),
-             "%Y-%m-%d %H:%M:%S"
-      )
-    ) -
-    as.POSIXct(
-      format( as.POSIXct( toUTC( localtime ), format = "%Y-%m-%d %H:%M:%S" ),
-             "%Y-%m-%d %H:%M:%S"
-      )
+      format(localtime,"%Y-%m-%d %H:%M:%S")
     )
+    ,
+    as.POSIXct(
+      format(toUTC( localtime ),"%Y-%m-%d %H:%M:%S")
+    )
+    , "hours"
   )
 }
 

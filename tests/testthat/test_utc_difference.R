@@ -13,7 +13,7 @@ test_that("hoursUTC_at_UTC",{
   localtimeUTC <- Sys.time()
   attr(localtimeUTC,"tzone") <- "UTC"
   expect_equal(
-    hoursUTC(localtimeUTC),
+    as.numeric(hoursUTC(localtimeUTC)),
     0
   )
 }
