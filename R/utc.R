@@ -5,12 +5,14 @@
 #'
 #'@param localtime POSIXct local time
 #'
+#'@param timeformat string format of local time, by default it will be "\%Y-\%m-\%d \%H:\%M:\%S"
+#'
 #'@return utctime POSIXct UTC time
 #'
 #'@example toUTC(Sys.time())
 #'
-toUTC <- function(localtime){
-  utctime <- as.POSIXct( localtime, format="%Y-%m-%d %H:%M:%S")
+toUTC <- function(localtime, timeformat ="%Y-%m-%d %H:%M:%S"){
+  utctime <- as.POSIXct( localtime, format = timeformat)
   attr(utctime,"tzone") <- "UTC"
   utctime
 }
