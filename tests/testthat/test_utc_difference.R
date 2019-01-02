@@ -18,3 +18,16 @@ test_that("hoursUTC_at_UTC",{
   )
 }
 )
+
+test_that("fromUTC_different_timeformat",{
+  timeUTC <- fromUTC(
+      as.POSIXct("2019-01-01 00:00",
+                 tz = "UTC",
+                 format = "%Y-%m-%d %H:%M"
+                 ),"%Y-%m-%d %H:%M:%S")
+  expect_is(
+    timeUTC,
+    "POSIXct"
+  )
+}
+)

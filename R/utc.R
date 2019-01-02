@@ -11,7 +11,7 @@
 #'
 #'@example toUTC(Sys.time())
 #'
-toUTC <- function(localtime, timeformat ="%Y-%m-%d %H:%M:%S"){
+toUTC <- function(localtime, timeformat = "%Y-%m-%d %H:%M:%S"){
   utctime <- as.POSIXct( localtime, format = timeformat)
   attr(utctime,"tzone") <- "UTC"
   utctime
@@ -24,12 +24,14 @@ toUTC <- function(localtime, timeformat ="%Y-%m-%d %H:%M:%S"){
 #'
 #'@param utctime POSIXct UTC time
 #'
+#'@param timeformat string format of local time, by default it will be "\%Y-\%m-\%d \%H:\%M:\%S"
+#'
 #'@return localtime POSIXct local time
 #'
 #'@examples  fromUTC( as.POSIXct("1991-06-29 05:27:25", tz = "UTC") )
 #'
-fromUTC <- function(utctime){
-  localtime <- as.POSIXct( utctime, format="%Y-%m-%d %H:%M:%S")
+fromUTC <- function(utctime, timeformat = "%Y-%m-%d %H:%M:%S"){
+  localtime <- as.POSIXct( utctime, format = timeformat)
   attr(localtime,"tzone") <- Sys.timezone()
   localtime
 }
@@ -41,16 +43,18 @@ fromUTC <- function(utctime){
 #'
 #'@param to_test_time only for testing UTC Sys.time()
 #'
+#'@param timeformat string format of local time, by default it will be "\%Y-\%m-\%d \%H:\%M:\%S"
+#'
 #'@return number of hours
 #'
 #'@example  hoursUTC()
 #'
-hoursUTC <- function(to_test_time = Sys.time()){
+hoursUTC <- function(to_test_time = Sys.time(), timeformat = "%Y-%m-%d %H:%M:%S"){
   localtime <- to_test_time
   difftime(
-    format(localtime,"%Y-%m-%d %H:%M:%S")
+    format(localtime, timeformat)
     ,
-    format(toUTC( localtime ),"%Y-%m-%d %H:%M:%S")
+    format(toUTC( localtime ), timeformat)
     , units ="hours"
   )
 
@@ -64,7 +68,6 @@ hoursUTC <- function(to_test_time = Sys.time()){
 #'@param h number of hours
 #'
 #'@param datetime POSIXct
-#'
 #'
 #'@return  POSIXct and h added
 #'

@@ -4,10 +4,12 @@
 \alias{hoursUTC}
 \title{hoursUTC}
 \usage{
-hoursUTC(to_test_time = Sys.time())
+hoursUTC(to_test_time = Sys.time(), timeformat = "\%Y-\%m-\%d \%H:\%M:\%S")
 }
 \arguments{
 \item{to_test_time}{only for testing UTC Sys.time()}
+
+\item{timeformat}{string format of local time, by default it will be "\%Y-\%m-\%d \%H:\%M:\%S"}
 }
 \value{
 number of hours

@@ -4,10 +4,12 @@
 \alias{fromUTC}
 \title{fromUTC}
 \usage{
-fromUTC(utctime)
+fromUTC(utctime, timeformat = "\%Y-\%m-\%d \%H:\%M:\%S")
 }
 \arguments{
 \item{utctime}{POSIXct UTC time}
+
+\item{timeformat}{string format of local time, by default it will be "\%Y-\%m-\%d \%H:\%M:\%S"}
 }
 \value{
 localtime POSIXct local time
